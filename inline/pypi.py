@@ -10,7 +10,7 @@ import requests
 from zelretch.core.decorators import in_ring
 
 try:
-    from kurigram.types import (
+    from pyrogram.types import (
         InlineQueryResultArticle,
         InputTextMessageContent,
     )

@@ -16,7 +16,7 @@ from zelretch.core.decorators import zelretch_cmd
 from zelretch.core.wrappers import eor
 
 try:
-    from kurigram.enums import ChatAction
+    from pyrogram.enums import ChatAction
     CHAT_ACTION_AVAILABLE = True
 except ImportError:  # pragma: no cover
     CHAT_ACTION_AVAILABLE = False
@@ -25,7 +25,7 @@ except ImportError:  # pragma: no cover
 @zelretch_cmd(pattern=r"activity (\d+)", owner_only=True)
 async def activity(client, message):
     if not CHAT_ACTION_AVAILABLE:
-        return await eor(message, "`kurigram ChatAction not available.`")
+        return await eor(message, "`pyrogram ChatAction not available.`")
     n = int(message.matches[0].group(1))
     if n > 50:
         return await eor(message, "`Max 50.`")
